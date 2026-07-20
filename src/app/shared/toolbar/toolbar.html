@@ -1,0 +1,71 @@
+<mat-toolbar class="toolbar">
+  <div class="toolbar__logo">
+    <svg
+      width="140"
+      height="36"
+      viewBox="0 0 140 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="nng-logo"
+    >
+      <g transform="translate(2,2)">
+        <path
+          d="M4 4 L14 4 L24 14 L24 24 L14 24 L4 14 Z"
+          fill="currentColor"
+          opacity="0.9"
+        />
+
+        <path
+          d="M12 0 L22 0 L32 10 L32 20 L22 20 L12 10 Z"
+          fill="currentColor"
+          opacity="0.7"
+        />
+
+        <path d="M20 4 L30 4 L30 14 L20 14 Z" fill="currentColor" opacity="1" />
+      </g>
+
+      <text
+        x="48"
+        y="24"
+        fill="currentColor"
+        font-size="18"
+        font-family="Inter, Roboto, Arial, sans-serif"
+        font-weight="700"
+        letter-spacing="1.5"
+      >
+        NNG
+      </text>
+    </svg>
+  </div>
+
+  <div class="toolbar__spacer"></div>
+
+  <div class="toolbar__actions">
+    <a mat-icon-button matTooltip="Download CV" href="assets/files/cv.pdf" download="NNG">
+      <mat-icon>download</mat-icon>
+    </a>
+
+    <a
+      mat-icon-button
+      matTooltip="GitHub"
+      href="https://github.com/NGN22"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+    >
+      <mat-icon
+        [svgIcon]="theme() === 'dark' ? 'github_white' : 'github_black'"
+      ></mat-icon>
+    </a>
+
+    <button mat-icon-button matTooltip="Theme" (click)="toggleTheme()">
+      <mat-icon>dark_mode</mat-icon>
+    </button>
+
+    <button class="avatar-btn">NNG</button>
+
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
