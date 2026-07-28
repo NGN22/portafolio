@@ -1,0 +1,82 @@
+/// seccion 
+///<!-- Seccion de marcas -->
+.brand-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.brand-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  
+  color: #4b5563;
+  
+  transition: all 0.2s ease;
+}
+
+.brand-icon {
+  width: clamp(120px, 12vw, 200px);
+  height: auto;
+
+    transition: 
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.brand-button:hover {
+  color: #367c4d;
+  transform: translateY(-2px);
+}
+
+.brand-button:hover .brand-icon {
+  transform: scale(1.06);
+
+  filter:
+    drop-shadow(0 0 6px rgba(54, 124, 77, 0.25))
+    drop-shadow(0 0 6px rgba(54, 124, 77, 0.20));
+}
+
+.brand-button:hover .layer1 {
+  animation: illuminate 0.35s ease;
+}
+
+.brand-button:hover .layer2 {
+  animation: illuminate 0.35s ease 0.10s;
+}
+
+.brand-button:hover .layer3 {
+  animation: illuminate 0.35s ease 0.20s;
+}
+
+.brand-title {
+  font-family: Inter, Roboto, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.35rem;
+}
+
+///Animacion de iluminacion de capas
+@keyframes illuminate {
+  0% {
+    opacity: inherit;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.8);
+  }
+
+  100% {
+    opacity: 1;
+    filter: brightness(1.4);
+  }
+}

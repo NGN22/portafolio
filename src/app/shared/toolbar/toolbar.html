@@ -1,5 +1,5 @@
 <mat-toolbar class="toolbar">
-  <div class="toolbar__logo">
+  <div class="toolbar__logo" routerLink="/home">
     <svg
       width="140"
       height="36"
@@ -40,8 +40,16 @@
 
   <div class="toolbar__spacer"></div>
 
+  <button mat-icon-button class="mobile-menu-btn" (click)="toggleMenu()">
+    <mat-icon>{{ menuOpen() ? 'close' : 'menu' }}</mat-icon>
+  </button>
   <div class="toolbar__actions">
-    <a mat-icon-button matTooltip="Download CV" href="assets/files/cv.pdf" download="NNG">
+    <a
+      mat-icon-button
+      matTooltip="Download CV"
+      href="assets/files/cv.pdf"
+      download="NNG"
+    >
       <mat-icon>download</mat-icon>
     </a>
 
@@ -53,19 +61,36 @@
       rel="noopener noreferrer"
       aria-label="GitHub"
     >
-      <mat-icon
-        [svgIcon]="theme() === 'dark' ? 'github_white' : 'github_black'"
-      ></mat-icon>
+      <mat-icon svgIcon="github_black"></mat-icon>
+    </a>
+
+    <a
+      mat-icon-button
+      matTooltip="LinkedIn"
+      href="https://www.linkedin.com/in/nohely-gonzalez/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn"
+    >
+      <mat-icon svgIcon="linkedin_black"></mat-icon>
     </a>
 
     <button mat-icon-button matTooltip="Theme" (click)="toggleTheme()">
-      <mat-icon>dark_mode</mat-icon>
-    </button>
-
-    <button class="avatar-btn">NNG</button>
-
-    <button mat-icon-button>
-      <mat-icon>menu</mat-icon>
+      <img 
+        [src]="theme() === 'dark' ? 'assets/logos/Galaga.svg' : 'assets/logos/rocket.svg'"
+        alt="Theme"
+        class="theme-icon">
     </button>
   </div>
 </mat-toolbar>
+
+@if (menuOpen()) {
+  <div class="mobile-menu">
+    <a routerLink="/home" (click)="menuOpen.set(false)"> Home </a>
+
+    <a routerLink="/credentials" (click)="menuOpen.set(false)"> Credentials </a>
+
+    <!-- <a routerLink="/projects" (click)="menuOpen.set(false)"> Projects </a> -->
+    
+  </div>
+}

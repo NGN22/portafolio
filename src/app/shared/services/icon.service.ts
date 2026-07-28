@@ -14,8 +14,9 @@ export class IconService {
 
   init(): void {
     const icons = [
-      { name: 'github_white', path: 'assets/GitHub_Invertocat_White.svg' },
-      { name: 'github_black', path: 'assets/GitHub_Invertocat_Black.svg' },
+      { name: 'github_black', path: 'assets/logos/GitHub_Invertocat_Black.svg' },
+      { name: 'linkedin_black', path: 'assets/logos/InBug-Black.svg' },
+     
     ];
 
     icons.forEach(icon => {
