@@ -3,8 +3,9 @@
 .brand-container {
   width: 100%;
   display: flex;
-  justify-content: center;
-  padding-top: 3rem;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8rem;
 }
 
 .brand-button {
@@ -19,16 +20,19 @@
   
   color: #4b5563;
   
-  transition: all 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .brand-icon {
   width: clamp(120px, 12vw, 200px);
   height: auto;
-
+  will-change: transform;
     transition: 
     transform 0.2s ease,
     color 0.2s ease;
+    
 }
 
 .brand-button:hover {
@@ -40,8 +44,8 @@
   transform: scale(1.06);
 
   filter:
-    drop-shadow(0 0 6px rgba(54, 124, 77, 0.25))
-    drop-shadow(0 0 6px rgba(54, 124, 77, 0.20));
+    drop-shadow(0 0 4px rgba(54, 124, 77, 0.25))
+    drop-shadow(0 0 4px rgba(54, 124, 77, 0.20));
 }
 
 .brand-button:hover .layer1 {
@@ -58,8 +62,8 @@
 
 .brand-title {
   font-family: Inter, Roboto, sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.4rem);
-  font-weight: 700;
+  font-size: clamp(1.15rem, 1.8vw, 1.75rem);
+  font-weight: 800;
   letter-spacing: 0.35rem;
 }
 
@@ -79,4 +83,113 @@
     opacity: 1;
     filter: brightness(1.4);
   }
+}
+
+//panel
+
+.about-panel {
+  width: min(650px, 90vw);
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  
+  text-align: center;
+
+  transition:
+    max-height 650ms ease-out;
+    
+  margin-top: 0;
+}
+
+.about-panel.expanded {
+  max-height: 200px;
+
+  margin-top: 1rem;
+}
+
+.about-text {
+  margin: 0;
+
+  line-height: 1.8;
+
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
+
+  opacity: 0;
+
+  transform: translateY(-8px);
+
+  transition:
+    opacity 700ms ease 150ms,
+    transform 700ms ease 150ms;
+}
+
+.about-panel.expanded .about-text {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+//Navegacion 
+
+.navigation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 3rem;
+
+  gap: 1.25rem;
+}
+
+.nav-button {
+  position: relative;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+
+  color: #4b5563;
+
+  font-family: Inter, Roboto, sans-serif;
+
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+
+  font-weight: 600;
+
+  letter-spacing: 0.2rem;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-button:hover {
+  color: #367c4d;
+
+  transform: translateY(-2px);
+}
+
+.nav-button:hover::after {
+  width: 70%;
+}
+
+.nav-button::after {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background-color: #367c4d;
+
+  transform: translateX(-50%);
+
+  transition: width 250ms ease;
 }
