@@ -41,7 +41,7 @@
   <div class="toolbar__spacer"></div>
 
   <button mat-icon-button class="mobile-menu-btn" (click)="toggleMenu()">
-    <mat-icon>{{ menuOpen() ? 'close' : 'menu' }}</mat-icon>
+    <mat-icon>{{ menuOpen() ? "close" : "menu" }}</mat-icon>
   </button>
   <div class="toolbar__actions">
     <a
@@ -75,11 +75,12 @@
       <mat-icon svgIcon="linkedin_black"></mat-icon>
     </a>
 
+    <button mat-icon-button (click)="toggleLanguage()">
+      {{ language().toUpperCase() }}
+    </button>
+
     <button mat-icon-button matTooltip="Theme" (click)="toggleTheme()">
-      <img 
-        [src]="theme() === 'dark' ? 'assets/logos/Galaga.svg' : 'assets/logos/rocket.svg'"
-        alt="Theme"
-        class="theme-icon">
+      <mat-icon [svgIcon]=" theme() === 'dark' ? 'galaga' : 'rocket'"></mat-icon>
     </button>
   </div>
 </mat-toolbar>
@@ -91,6 +92,5 @@
     <a routerLink="/credentials" (click)="menuOpen.set(false)"> Credentials </a>
 
     <!-- <a routerLink="/projects" (click)="menuOpen.set(false)"> Projects </a> -->
-    
   </div>
 }

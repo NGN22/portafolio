@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ThemeService } from '../services/theme.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
+import { LanguageService } from '../services/language.service';
 
 
 
@@ -16,10 +17,17 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./toolbar.scss'],
 })
 export class Toolbar {
+  
+  
   // Inject the ThemeService to access theme-related functionality
   private themeService = inject(ThemeService);
+
+  // Inject the LanguageService to access language-related functionality
+  private languageService = inject(LanguageService)
     
   readonly theme = this.themeService.theme;
+
+  readonly language = this.languageService.language;
 
   readonly menuOpen = signal(false);;
 
@@ -32,4 +40,9 @@ export class Toolbar {
   
   }
 
+  toggleLanguage() {
+    this.languageService.toggleLanguage();
+  }
+
+ 
 }

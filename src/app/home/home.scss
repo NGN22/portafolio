@@ -104,13 +104,15 @@
 }
 
 .about-panel.expanded {
-  max-height: 200px;
+  max-height: 300px;
 
   margin-top: 1rem;
 }
 
 .about-text {
   margin: 0;
+
+  white-space: pre-line;
 
   line-height: 1.8;
 

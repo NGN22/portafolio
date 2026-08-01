@@ -16,6 +16,8 @@ export class IconService {
     const icons = [
       { name: 'github_black', path: 'assets/logos/GitHub_Invertocat_Black.svg' },
       { name: 'linkedin_black', path: 'assets/logos/InBug-Black.svg' },
+      { name: 'galaga', path: 'assets/logos/Galaga.svg'},
+      { name: 'rocket', path: 'assets/logos/rocket.svg'}
      
     ];
 
