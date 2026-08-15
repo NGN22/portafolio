@@ -11,3 +11,6 @@ export const HOME_CONTENT = {
     `
   } satisfies TranslatableText 
 };
+
+
+

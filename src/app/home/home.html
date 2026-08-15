@@ -32,7 +32,7 @@
       />
     </svg>
 
-    <span class="brand-title"> NNG </span>
+    <span class="brand-title"> Nadia Nohely Gonzalez </span>
   </button>
 
   <section class="about-panel" [class.expanded]="isExpanded()">
@@ -42,13 +42,14 @@
   </section>
 
   <section class="navigation-container">
-    
-    <!-- 
-    <a routerLink="/projects" class="nav-button">Projects</a>
-     -->
+        
+    <a routerLink="/credentials" class="nav-button">
+      {{ getText(ui.navigation.credentials) }}
+    </a>
 
-    <a routerLink="/credentials" class="nav-button">Credentials</a>
-
-    
+    <a routerLink="/projects" class="nav-button">
+      {{ getText(ui.navigation.projects) }}
+    </a>
+        
   </section>
 </section>

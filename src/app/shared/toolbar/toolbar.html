@@ -1,5 +1,5 @@
 <mat-toolbar class="toolbar">
-  <div class="toolbar__logo" routerLink="/home">
+  <button class="toolbar__logo" [matMenuTriggerFor]="mainMenu">
     <svg
       width="140"
       height="36"
@@ -36,7 +36,7 @@
         NNG
       </text>
     </svg>
-  </div>
+  </button>
 
   <div class="toolbar__spacer"></div>
 
@@ -44,6 +44,67 @@
     <mat-icon>{{ menuOpen() ? "close" : "menu" }}</mat-icon>
   </button>
   <div class="toolbar__actions">
+    <a
+      mat-icon-button
+      matTooltip="Download CV"
+      href="assets/files/cv.pdf"
+      download="NNG"
+    >
+      <mat-icon>download</mat-icon>
+    </a>
+
+    <a
+      mat-icon-button
+      matTooltip="GitHub"
+      href="https://github.com/NGN22"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+    >
+      <mat-icon svgIcon="github_black" class="icon"></mat-icon>
+    </a>
+
+    <a
+      mat-icon-button
+      matTooltip="LinkedIn"
+      href="https://www.linkedin.com/in/nohely-gonzalez/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn"
+      
+    >
+      <mat-icon svgIcon="linkedin_black" class="icon"></mat-icon>
+    </a>
+
+    <button mat-icon-button matTooltip="Language" (click)="toggleLanguage()">
+      <mat-icon>translate</mat-icon>
+    </button>
+
+    <button mat-icon-button  matTooltip="Theme" (click)="toggleTheme()">
+      <mat-icon [svgIcon]="theme() === 'dark' ? 'galaga' : 'rocket'"></mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-menu #mainMenu="matMenu">
+  <button mat-menu-item routerLink="/home">
+    <mat-icon>rocket_launch</mat-icon>
+    <span> {{ getText(ui.navigation.home) }}</span>
+  </button>
+
+  <button mat-menu-item routerLink="/credentials">
+    <mat-icon>star_shine</mat-icon>
+    <span> {{ getText(ui.navigation.credentials) }}</span>
+  </button>
+
+  <button mat-menu-item routerLink="/projects">
+    <mat-icon>grade</mat-icon>
+    <span> {{ getText(ui.navigation.projects) }}</span>
+  </button>
+</mat-menu>
+
+@if (menuOpen()) {
+  <div class="mobile-menu">
     <a
       mat-icon-button
       matTooltip="Download CV"
@@ -80,17 +141,7 @@
     </button>
 
     <button mat-icon-button matTooltip="Theme" (click)="toggleTheme()">
-      <mat-icon [svgIcon]=" theme() === 'dark' ? 'galaga' : 'rocket'"></mat-icon>
+      <mat-icon [svgIcon]="theme() === 'dark' ? 'galaga' : 'rocket'"></mat-icon>
     </button>
-  </div>
-</mat-toolbar>
-
-@if (menuOpen()) {
-  <div class="mobile-menu">
-    <a routerLink="/home" (click)="menuOpen.set(false)"> Home </a>
-
-    <a routerLink="/credentials" (click)="menuOpen.set(false)"> Credentials </a>
-
-    <!-- <a routerLink="/projects" (click)="menuOpen.set(false)"> Projects </a> -->
   </div>
 }

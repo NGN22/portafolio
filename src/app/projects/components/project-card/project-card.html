@@ -1,0 +1,55 @@
+<mat-card
+  appearance="outlined"
+  class="project-card">
+
+  <mat-card-content>
+
+    <div class="project-identity">
+
+      <h3>
+        {{ title() }}
+      </h3>
+      
+    </div>
+
+    <p class="project-summary">
+      {{ summary() }}
+    </p>
+
+    <mat-divider />
+
+    <div class="project-technologies">
+
+      
+      <mat-chip-set>
+
+        @for (
+          technology of project().technologies;
+          track technology
+        ) {
+
+          <mat-chip>
+            {{ technology }}
+          </mat-chip>
+
+        }
+
+      </mat-chip-set>
+
+    </div>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+
+    <button
+      mat-button
+      type="button"
+      (click)="navigateToProject()">
+
+      Explorar
+    </button>
+
+  </mat-card-actions>
+
+</mat-card>

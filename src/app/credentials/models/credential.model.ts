@@ -1,21 +1,27 @@
+import { TranslatableText } from "../../shared/models/translatable-text.model";
+
 export interface Credential {
   id: string;
 
-  title: string;
+
+  title: TranslatableText;
   issuer: string;
   issuedDate: string;
 
   icon?: string;
   logo?: string;
 
-  category?: string;
+  category?: TranslatableText;
   credentialUrl?: string;
 }
 
 
 export interface Profile {
   name: string;
-  role: string;
-  summary: string;
-  skills: string[];
+  role: TranslatableText;
+  title: TranslatableText;
+  education: TranslatableText;
+  skills: TranslatableText[];
+
 }
+
