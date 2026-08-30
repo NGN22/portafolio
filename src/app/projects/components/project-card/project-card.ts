@@ -15,6 +15,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { LanguageService } from '../../../shared/services/language.service';
 import { Project } from '../../models/project.model';
 import { MatDividerModule } from '@angular/material/divider';
+import { TranslatableText } from '../../../shared/models/translatable-text.model';
 
 @Component({
   selector: 'app-project-card',
@@ -40,18 +41,11 @@ export class ProjectCardComponent {
   private readonly router =
     inject(Router);
 
-  readonly title = computed(() =>
-    this.languageService.translate(
-      this.project().title
-    )
-  );
+  getText(text: TranslatableText): string {
+    return this.languageService.translate(text);
+  }
 
-  readonly summary = computed(() =>
-    this.languageService.translate(
-      this.project().summary
-    )
-  );
-
+  
   navigateToProject(): void {
 
     this.router.navigate([

@@ -1,0 +1,135 @@
+.project-detail {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 4rem 2rem;
+}
+
+/* -------------------------------- */
+/* BACK BUTTON */
+/* -------------------------------- */
+
+.project-detail__back {
+  margin-bottom: 2rem;
+}
+
+/* -------------------------------- */
+/* CARDS */
+/* -------------------------------- */
+
+.project-detail__header,
+.project-detail__section {
+  margin-bottom: 1.5rem;
+}
+
+.project-detail__header mat-card-content,
+.project-detail__section mat-card-content {
+  padding: 2rem;
+}
+
+/* -------------------------------- */
+/* HEADER */
+/* -------------------------------- */
+
+.project-detail__header h1 {
+  margin: 0 0 1rem;
+}
+
+.project-detail__summary {
+  margin-bottom: 1.5rem;
+
+  font-size: 1.05rem;
+
+  line-height: 1.6;
+
+  opacity: 0.9;
+}
+
+/* -------------------------------- */
+/* SECTIONS */
+/* -------------------------------- */
+
+.project-detail__section h2 {
+  margin: 0 0 1rem;
+
+  font-size: 1.5rem;
+}
+
+.project-detail__section p {
+  line-height: 1.8;
+}
+
+/* -------------------------------- */
+/* EVIDENCES */
+/* -------------------------------- */
+
+.project-detail__evidences {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  );
+
+  gap: 1.5rem;
+}
+
+.evidence {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.evidence img {
+  width: 100%;
+  
+  aspect-ratio: 16 / 10;
+
+  border-radius: 12px;
+
+  object-fit: cover;
+
+  border: 1px solid rgb(255 255 255 / 10%);
+}
+
+.evidence p {
+  margin: 0;
+}
+
+/* -------------------------------- */
+/* ACTIONS */
+/* -------------------------------- */
+
+.project-detail__actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 1rem;
+}
+
+/* -------------------------------- */
+/* MOBILE */
+/* -------------------------------- */
+
+@media (width <= 768px) {
+  .project-detail {
+    padding: 3rem 1rem;
+  }
+
+  .project-detail__header mat-card-content,
+  .project-detail__section mat-card-content {
+    padding: 1.5rem;
+  }
+
+  .project-detail__header h1 {
+    font-size: 2rem;
+  }
+
+  .project-detail__evidences {
+    grid-template-columns: 1fr;
+  }
+}

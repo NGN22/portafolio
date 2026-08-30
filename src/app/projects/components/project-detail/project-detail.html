@@ -1,0 +1,150 @@
+@if (project) {
+  <section class="project-detail">
+    <button
+      mat-button
+      type="button"
+      class="project-detail__back"
+      (click)="goBack()"
+    >
+      ← Volver
+    </button>
+
+    <!-- HEADER -->
+
+    <mat-card class="project-detail__header">
+      <mat-card-content>
+        <h1>
+          {{ getText(project.title) }}
+        </h1>
+
+        <p class="project-detail__summary">
+          {{ getText(project.summary) }}
+        </p>
+
+        <mat-chip-set>
+          @for (technology of project.technologies; track technology) {
+            <mat-chip>
+              {{ technology }}
+            </mat-chip>
+          }
+        </mat-chip-set>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- CONTEXTO -->
+
+    <mat-card class="project-detail__section">
+      <mat-card-content>
+        <h2>Contexto</h2>
+
+        <p>
+          {{ getText(project.description) }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- DESAFÍO -->
+
+    @if (project.challenge) {
+      <mat-card class="project-detail__section">
+        <mat-card-content>
+          <h2>Desafío</h2>
+
+          <p>
+            {{ getText(project.challenge) }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    }
+
+    <!-- SOLUCIÓN -->
+
+    @if (project.solution) {
+      <mat-card class="project-detail__section">
+        <mat-card-content>
+          <h2>Solución</h2>
+
+          <p>
+            {{ getText(project.solution) }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    }
+
+    <!-- EVIDENCIAS -->
+
+    @if (project.evidences?.length) {
+      <mat-card class="project-detail__section">
+        <mat-card-content>
+          <h2>Evidencias</h2>
+
+          <div class="project-detail__evidences">
+            @for (evidence of project.evidences; track evidence.imageUrl) {
+              <article class="evidence">
+                @if (evidence.imageUrl) {
+                  <img [src]="evidence.imageUrl" alt="Project evidence" />
+                } @else {
+                  <div class="evidence-placeholder">Captura pendiente</div>
+                }
+
+                @if (evidence.description) {
+                  <p>
+                    {{ getText(evidence.description) }}
+                  </p>
+                }
+              </article>
+            }
+          </div>
+        </mat-card-content>
+      </mat-card>
+    }
+
+    <!-- APRENDIZAJES -->
+
+    @if (project.lessonsLearned) {
+      <mat-card class="project-detail__section">
+        <mat-card-content>
+          <h2>Aprendizajes</h2>
+
+          <p>
+            {{ getText(project.lessonsLearned) }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    }
+
+    <!-- RECURSOS -->
+
+    @if (project.githubUrl || project.demoUrl || project.documentationUrl) {
+      <mat-card class="project-detail__section">
+        <mat-card-content>
+          <h2>Recursos</h2>
+
+          <div class="project-detail__actions">
+            @if (project.githubUrl) {
+              <a mat-raised-button [href]="project.githubUrl" target="_blank">
+                GitHub
+              </a>
+            }
+
+            @if (project.demoUrl) {
+              <a mat-raised-button [href]="project.demoUrl" target="_blank">
+                Demo
+              </a>
+            }
+
+            @if (project.documentationUrl) {
+              <a
+                mat-raised-button
+                [href]="project.documentationUrl"
+                target="_blank"
+              >
+                Documentación
+              </a>
+            }
+          </div>
+        </mat-card-content>
+      </mat-card>
+    }
+  </section>
+}

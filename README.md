@@ -49,6 +49,6 @@ Aplicación web desarrollada con Angular 20 y Angular Material.
 
 ```bash  
 
-git clone https://github.com/NGN22/mi-portafolio
+git clone https://github.com/NGN22/portafolio
 
 
