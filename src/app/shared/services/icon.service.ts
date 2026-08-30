@@ -22,10 +22,9 @@ export class IconService {
     ];
 
     icons.forEach(icon => {
-      this.iconRegistry.addSvgIcon(
-        icon.name,
-        this.sanitizer.bypassSecurityTrustResourceUrl(icon.path)
-      );
+      // Angular Material automatically sanitizes static asset paths
+      // No need for bypassSecurityTrustResourceUrl for local assets
+      this.iconRegistry.addSvgIcon(icon.name, icon.path);
     });
   }
 }
