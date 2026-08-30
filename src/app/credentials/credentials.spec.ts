@@ -3,16 +3,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CredentialsComponent } from './credentials';
 
 describe('Credentials', () => {
-  let component: Credentials;
-  let fixture: ComponentFixture<Credentials>;
+  let component: CredentialsComponent;
+  let fixture: ComponentFixture<CredentialsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Credentials]
+      imports: [CredentialsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Credentials);
+    fixture = TestBed.createComponent(CredentialsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
