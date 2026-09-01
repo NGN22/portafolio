@@ -79,10 +79,18 @@
           <h2>Evidencias</h2>
 
           <div class="project-detail__evidences">
-            @for (evidence of project.evidences; track evidence.imageUrl) {
+            @for (
+              evidence of project.evidences;
+              track evidence.imageUrl;
+              let index = $index
+            ) {
               <article class="evidence">
                 @if (evidence.imageUrl) {
-                  <img [src]="evidence.imageUrl" alt="Project evidence" />
+                  <img
+                    [src]="evidence.imageUrl"
+                    alt="Project evidence"
+                    (click)="openEvidence(evidence, index)"
+                  />
                 } @else {
                   <div class="evidence-placeholder">Captura pendiente</div>
                 }

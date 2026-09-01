@@ -1,0 +1,44 @@
+<div class="image-preview">
+  <div class="image-preview__header">
+    <button mat-icon-button type="button" (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="image-preview__viewer">
+    <img [src]="currentEvidence.imageUrl" alt="Project evidence" />
+  </div>
+
+  <div class="image-preview__navigation">
+    <button
+      mat-icon-button
+      type="button"
+      (click)="previous()"
+      [disabled]="currentIndex === 0"
+    >
+      <mat-icon> chevron_left </mat-icon>
+    </button>
+
+    <div class="image-preview__counter">
+      {{ currentIndex + 1 }}
+      /
+      {{ data.evidences.length }}
+    </div>
+
+    <button
+      mat-icon-button
+      type="button"
+      (click)="next()"
+      [disabled]="currentIndex === data.evidences.length - 1"
+    >
+      <mat-icon> chevron_right </mat-icon>
+    </button>
+  </div>
+
+
+  @if (currentEvidence.description) {
+    <p class="image-preview__description">
+      {{ getText(currentEvidence.description) }}
+    </p>
+  }
+</div>
