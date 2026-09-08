@@ -6,7 +6,7 @@
       class="project-detail__back"
       (click)="goBack()"
     >
-      ← Volver
+      ←
     </button>
 
     <!-- HEADER -->
@@ -123,31 +123,35 @@
 
     <!-- RECURSOS -->
 
-    @if (project.githubUrl || project.demoUrl || project.documentationUrl) {
+    @if (project.resources?.length) {
       <mat-card class="project-detail__section">
         <mat-card-content>
           <h2>Recursos</h2>
 
-          <div class="project-detail__actions">
-            @if (project.githubUrl) {
-              <a mat-raised-button [href]="project.githubUrl" target="_blank">
-                GitHub
-              </a>
-            }
+          <div class="resources">
+            @for (resource of project.resources; track resource.url) {
+              <a class="resource-card" [href]="resource.url" target="_blank">
+                <div class="resource-card__icon">
+                  @if (resource.type === "github") {
+                    <mat-icon svgIcon="github_black" />
+                  } @else {
+                    <mat-icon>
+                      {{ getResourceIcon(resource.type) }}
+                    </mat-icon>
+                  }
+                </div>
 
-            @if (project.demoUrl) {
-              <a mat-raised-button [href]="project.demoUrl" target="_blank">
-                Demo
-              </a>
-            }
+                <div class="resource-card__content">
+                  <h3>
+                    {{ getText(resource.title) }}
+                  </h3>
 
-            @if (project.documentationUrl) {
-              <a
-                mat-raised-button
-                [href]="project.documentationUrl"
-                target="_blank"
-              >
-                Documentación
+                  @if (resource.description) {
+                    <p>
+                      {{ getText(resource.description) }}
+                    </p>
+                  }
+                </div>
               </a>
             }
           </div>

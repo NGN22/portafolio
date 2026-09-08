@@ -24,16 +24,19 @@
       <mat-chip-set>
 
         @for (
-          technology of project().technologies;
+          technology of visibleTechnologies;
           track technology
         ) {
 
           <mat-chip>
             {{ technology }}
           </mat-chip>
-
         }
-
+        @if (remainingTechnologiesCount > 0) {
+          <mat-chip>
+            +{{ remainingTechnologiesCount }}
+          </mat-chip>
+        }
       </mat-chip-set>
 
     </div>

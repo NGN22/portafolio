@@ -20,38 +20,33 @@ import { TranslatableText } from '../../../shared/models/translatable-text.model
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [
-    MatCardModule,
-    MatChipsModule,
-    MatButtonModule,
-    MatDividerModule,
-  ],
+  imports: [MatCardModule, MatChipsModule, MatButtonModule, MatDividerModule],
   templateUrl: './project-card.html',
   styleUrl: './project-card.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
+  readonly project = input.required<Project>();
 
-  readonly project =
-    input.required<Project>();
+  private readonly languageService = inject(LanguageService);
 
-  private readonly languageService =
-    inject(LanguageService);
-
-  private readonly router =
-    inject(Router);
+  private readonly router = inject(Router);
 
   getText(text: TranslatableText): string {
     return this.languageService.translate(text);
   }
 
-  
   navigateToProject(): void {
+    this.router.navigate(['/projects', this.project().id]);
+  }
 
-    this.router.navigate([
-      '/projects',
-      this.project().id,
-    ]);
+  readonly maxTechnologies = 4;
 
+  get visibleTechnologies(): string[] {
+    return this.project().technologies.slice(0, this.maxTechnologies);
+  }
+
+  get remainingTechnologiesCount(): number {
+    return this.project().technologies.length - this.maxTechnologies;
   }
 }

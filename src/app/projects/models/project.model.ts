@@ -1,16 +1,12 @@
 import { TranslatableText } from '../../shared/models/translatable-text.model';
-
+/* Galeria de evidencias */
 export interface ProjectEvidence {
-
   imageUrl?: string;
 
   description?: TranslatableText;
-
 }
 
-
 export interface Project {
-
   id: string;
 
   acronym: string;
@@ -33,13 +29,25 @@ export interface Project {
 
   evidences?: ProjectEvidence[];
 
-  githubUrl?: string;
-
-  demoUrl?: string;
-
-  documentationUrl?: string;
+  resources?: ProjectResource[];
 }
 
 
+/** Recursos de proyecto **/
+export type ProjectResourceType =
+  | 'github'
+  | 'demo'
+  | 'pdf'
+  | 'paper'
+  | 'documentation'
+  | 'link';
 
+export interface ProjectResource {
+  type: ProjectResourceType;
 
+  url: string;
+
+  title: TranslatableText;
+
+  description?: TranslatableText;
+}
