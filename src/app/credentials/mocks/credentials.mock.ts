@@ -4,6 +4,7 @@ import { Profile } from '../models/credential.model';
 import { TranslatableText } from '../../shared/models/translatable-text.model';
 
 export const CREDENTIALS: Credential[] = [
+  /* ccst */
   {
     id: 'ccst-cybersecurity',
 
@@ -12,22 +13,24 @@ export const CREDENTIALS: Credential[] = [
       en: 'Cisco Certified Support Technician Cybersecurity',
     },
     issuer: 'Cisco',
-    issuedDate: '05/2031',
+    issuedDate: 'Valid until 05/2031',
 
     logo: 'assets/logos/CCST.png',
 
     credentialUrl:
       'https://www.credly.com/badges/6b80ea17-9681-43ce-bf7f-cabf692bab83',
   },
+  /** Networking  */
   {
     id: 'networking-basics',
     title: { es: 'Fundamentos de Redes', en: 'Networking Basics' },
     issuer: 'Cisco',
-    issuedDate: '04/2026',
-    logo: 'assets/logos/Networking_Basic.png',
+    issuedDate: 'Obtained: 04/2026',
+    logo: 'assets/logos/Networking_Basic.webp',
     credentialUrl:
       'https://www.credly.com/badges/2143394b-7c30-49f4-a023-4168667129a0',
   },
+  /** Introduction to Cybersecurity */
   {
     id: 'intro-cybersecurity',
     title: {
@@ -35,11 +38,12 @@ export const CREDENTIALS: Credential[] = [
       en: 'Introduction to Cybersecurity',
     },
     issuer: 'Cisco',
-    issuedDate: '03/2026',
-    logo: 'assets/logos/Int_Cybersecurity.png',
+    issuedDate: 'Obtained: 03/2026',
+    logo: 'assets/logos/Int_Cybersecurity.webp',
     credentialUrl:
       'https://www.credly.com/badges/6dbb9f61-5562-46f6-aa3f-4ef324171854',
   },
+  /** Microsoft Security, Compliance, and Identity Fundamentals */
   {
     id: 'ms-security-compliance',
     title: {
@@ -47,11 +51,12 @@ export const CREDENTIALS: Credential[] = [
       en: 'Microsoft Certified: Security, Compliance, and Identity Fundamentals',
     },
     issuer: 'Microsoft',
-    issuedDate: '03/2026',
-    logo: 'assets/logos/Security_Compiance_Identity.png',
+    issuedDate: 'Obtained: 03/2026',
+    logo: 'assets/logos/Security_Compiance_Identity.webp',
     credentialUrl:
       'https://www.credly.com/badges/a65a83a0-52d2-4114-9f64-879000aa17e3',
   },
+  /** Microsoft Certified: Azure AI Fundamentals */
   {
     id: 'ms-azure-ai',
     title: {
@@ -59,11 +64,12 @@ export const CREDENTIALS: Credential[] = [
       en: 'Microsoft Certified: Azure AI Fundamentals',
     },
     issuer: 'Microsoft',
-    issuedDate: '03/2026',
-    logo: 'assets/logos/Azure_AI.png',
+    issuedDate: 'Obtained: 03/2026',
+    logo: 'assets/logos/Azure_AI.webp',
     credentialUrl:
       'https://www.credly.com/badges/bb393f85-6ab7-4b60-88b9-97aff15c8afd',
   },
+  /** Microsoft Certified: Azure Fundamentals */
   {
     id: 'ibm-cybersecurity-fundamentals',
     title: {
@@ -71,11 +77,12 @@ export const CREDENTIALS: Credential[] = [
       en: 'Cybersecurity Fundamentals',
     },
     issuer: 'IBM SkillsBuild',
-    issuedDate: '02/2026',
-    logo: 'assets/logos/Cybersecuruty_IBM.png',
+    issuedDate: 'Obtained: 02/2026',
+    logo: 'assets/logos/Cybersecuruty_IBM.webp',
     credentialUrl:
       'https://www.credly.com/badges/919faff8-ebd7-46f0-99d5-ea72d2288488',
   },
+  /** Microsoft Certified: Azure Fundamentals */
   {
     id: 'ibm-ai-fundamentals',
     title: {
@@ -83,8 +90,8 @@ export const CREDENTIALS: Credential[] = [
       en: 'Artificial Intelligence Fundamentals',
     },
     issuer: 'IBM SkillsBuild',
-    issuedDate: '01/2026',
-    logo: 'assets/logos/AI_IBM.png',
+    issuedDate: 'Obtained: 01/2026',
+    logo: 'assets/logos/AI_IBM.webp',
     credentialUrl:
       'https://www.credly.com/badges/4546581a-8525-4789-9051-2866f5a7f265',
   },
