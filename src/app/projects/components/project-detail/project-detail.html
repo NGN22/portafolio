@@ -6,7 +6,7 @@
       class="project-detail__back"
       (click)="goBack()"
     >
-      ←
+      <mat-icon>arrow_back</mat-icon>
     </button>
 
     <!-- HEADER -->
@@ -91,8 +91,6 @@
                     alt="Project evidence"
                     (click)="openEvidence(evidence, index)"
                   />
-                } @else {
-                  <div class="evidence-placeholder">Captura pendiente</div>
                 }
 
                 @if (evidence.description) {
